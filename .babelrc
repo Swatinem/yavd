@@ -1,0 +1,4 @@
+{
+  "jsxPragma": "jsx",
+  "optional": ["runtime"]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "yavd",
+  "version": "1.0.0",
+  "description": "yet another virtual dom library",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-istanbul",
+    "test-coverify": "mochify --transform babelify --cover --reporter spec",
+    "test-istanbul": "mochify --transform babelify --plugin [ mochify-istanbul --exclude '**/+(test|node_modules)/**/*' --report text-summary --report lcov --dir ./coverage ] --reporter spec",
+    "start": "mochify --transform babelify --reporter min --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Swatinem/yavd.git"
+  },
+  "keywords": [
+    "vdom",
+    "virtual-dom",
+    "react",
+    "virtual",
+    "dom"
+  ],
+  "author": "Arpad Borsos <arpad.borsos@googlemail.com>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Swatinem/yavd/issues"
+  },
+  "homepage": "https://github.com/Swatinem/yavd#readme",
+  "devDependencies": {
+    "babel-runtime": "^5.4.7",
+    "babelify": "^6.1.2",
+    "chai": "^2.3.0",
+    "isparta": "^3.0.3",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
+    "mochify": "^2.9.0",
+    "mochify-istanbul": "^2.1.3"
+  }
+}
