@@ -1,5 +1,9 @@
 # yavd
 
+[![Build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+[![Dependency Status][david-image]][david-url]
+
 yavd is **y**et **a**nother **v**irtual **d**om library.
 
 The goals are to be lightweight and very simple, and I do mean it! But it
@@ -47,3 +51,10 @@ Instance: {
   state: Object,
 }
 ```
+
+[travis-image]: https://img.shields.io/travis/Swatinem/yavd.svg?style=flat-square
+[travis-url]: https://travis-ci.org/Swatinem/yavd
+[codecov-image]: https://img.shields.io/coveralls/Swatinem/yavd.svg?style=flat-square
+[codecov-url]: https://coveralls.io/r/Swatinem/yavd?branch=master
+[david-image]: http://img.shields.io/david/Swatinem/yavd.svg?style=flat-square
+[david-url]: https://david-dm.org/Swatinem/yavd

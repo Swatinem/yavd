@@ -11,8 +11,8 @@ describe('create', function () {
     expect(node.outerHTML).to.eql('<div id="bar">some text <em>and</em> <span class="foo">other</span></div>');
   })
   it('should deal with style and dataset', function () {
-    let node = create(<div style={{margin: 'auto'}} />)
-    expect(node.outerHTML).to.eql('<div style="margin: auto;"></div>')
+    let node = create(<div style={{display: 'none'}} />)
+    expect(node.outerHTML).to.eql('<div style="display: none;"></div>')
     node = create(<div dataset={{foo: 'bar'}} />)
     expect(node.outerHTML).to.eql('<div data-foo="bar"></div>')
   });
