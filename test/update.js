@@ -28,9 +28,9 @@ describe('update', function () {
     update(node, prev, next1)
     expect(node.outerHTML).to.eql('<div data-foo="bar"></div>')
     node = create(prev)
-    let next2 = (<div style={{margin: 'auto'}} />)
+    let next2 = (<div style={{display: 'none'}} />)
     update(node, prev, next2)
-    expect(node.outerHTML).to.eql('<div style="margin: auto;"></div>')
+    expect(node.outerHTML).to.have.string('<div style="display: none;')
   })
   it.skip('should remove old props', function () {
     let prev = (<div dataset={{foo: 'bar'}} />)

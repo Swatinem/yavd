@@ -12,7 +12,7 @@ describe('create', function () {
   })
   it('should deal with style and dataset', function () {
     let node = create(<div style={{display: 'none'}} />)
-    expect(node.outerHTML).to.eql('<div style="display: none;"></div>')
+    expect(node.outerHTML).to.have.string('<div style="display: none;')
     node = create(<div dataset={{foo: 'bar'}} />)
     expect(node.outerHTML).to.eql('<div data-foo="bar"></div>')
   });
