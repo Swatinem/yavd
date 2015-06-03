@@ -1,5 +1,4 @@
 export default function jsx(type, _props, ...children) {
-  // XXX: why do these annotations not work?
   /* istanbul ignore if */
   if (children.length === 1 && Array.isArray(children[0])) {
     children = children[0];
