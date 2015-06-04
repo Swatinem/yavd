@@ -26,13 +26,13 @@ I plan to use things like html5 templates to help cloning entire subtrees and
 also to reuse previous component instances.
 
 ```js
-Node: String | {
-  type: Component,
+Node: Number | String | {
+  type: String | Component,
   props: Props,
   key?: String
 }
 
-Component: String | ComponentFn | ComponentObj
+Component: ComponentFn | ComponentObj
 
 ComponentFn: (Instance) => Node
 
