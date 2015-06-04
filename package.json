@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test-istanbul && npm run upload-coverage",
-    "test-istanbul": "mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov ] --reporter spec",
-    "upload-coverage": "[ -n \"$CI\" ] && cat ./coverage/lcov.info | ./node_modules/.bin/codecov || true",
+    "test-istanbul": "mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --report json --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
+    "upload-coverage": "[ -n \"$CI\" ] && cat ./coverage/coverage-final.json | ./node_modules/.bin/codecov || true",
     "start": "mochify --transform babelify --reporter min --watch"
   },
   "repository": {
@@ -34,7 +34,7 @@
     "codecov.io": "^0.1.2",
     "mocha": "^2.2.5",
     "mochify": "^2.9.0",
-    "mochify-istanbul": "Swatinem/mochify-istanbul#instrumenter"
+    "mochify-istanbul": "^2.2.0"
   },
   "browserify": {
     "transform": [
