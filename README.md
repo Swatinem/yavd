@@ -54,7 +54,7 @@ Instance: {
 
 [travis-image]: https://img.shields.io/travis/Swatinem/yavd.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Swatinem/yavd
-[codecov-image]: https://img.shields.io/coveralls/Swatinem/yavd.svg?style=flat-square
-[codecov-url]: https://coveralls.io/r/Swatinem/yavd?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/Swatinem/yavd.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/Swatinem/yavd
 [david-image]: http://img.shields.io/david/Swatinem/yavd.svg?style=flat-square
 [david-url]: https://david-dm.org/Swatinem/yavd
