@@ -7,7 +7,7 @@ describe('update', function () {
     let node = create(prev)
     let next = (<div id="bar">some text <em>and</em> <span className="foo">other</span></div>)
     update(node, prev, next)
-    expect(node.outerHTML).to.eql('<div id="bar">some text <em>and</em> <span class="foo">other</span></div>');
+    expect(node.outerHTML).to.eql('<div id="bar">some text <em>and</em> <span class="foo">other</span></div>')
   })
   it('should replace a node', function () {
     let parent = create(<div />)

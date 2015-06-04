@@ -1,4 +1,5 @@
 import applyProps from './applyprops'
+import {Instance, render} from './instance'
 
 export default function create(vnode, doc = document) {
   if (typeof vnode !== 'object') {
@@ -30,5 +31,6 @@ export default function create(vnode, doc = document) {
     return node
   }
 
-  // TODO: figure out how to treat components
+  let instance = Instance(vnode)
+  return create(render(instance))
 }

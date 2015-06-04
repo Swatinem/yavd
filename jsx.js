@@ -1,8 +1,13 @@
 export default function jsx(type, _props, ...children) {
-  /* istanbul ignore if */
-  if (children.length === 1 && Array.isArray(children[0])) {
-    children = children[0];
-  }
+  // flatten and remove empty children
+  children = children.reduce((acc, child) => {
+    if (Array.isArray(child)) {
+      acc.push.apply(acc, child)
+    } else if (child || typeof child === 'number') {
+      acc.push(child)
+    }
+    return acc
+  }, [])
   let props = Object.assign({children}, _props)
   let vnode = {type, props}
   if (props.key) {

@@ -47,5 +47,15 @@ describe('jsx constructor', function () {
       },
     }
     expect(<div id="bar">some text <em>and</em> <span className="foo">other</span></div>).to.eql(node)
+  })
+  it('should flatten nested child arrays', function () {
+    let li = {type: 'li', props: {children: []}}
+    let node = {
+      type: 'ul',
+      props: {
+        children: [li, li, li],
+      },
+    }
+    expect(<ul>{<li></li>}{[<li></li>, <li></li>]}</ul>).to.eql(node)
   });
 })
