@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run test-istanbul && npm run upload-coverage",
     "test-istanbul": "mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --report json --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
-    "upload-coverage": "[ -n \"$CI\" ] && cat ./coverage/coverage-final.json | ./node_modules/.bin/codecov || true",
+    "upload-coverage": "[ -n \"$CI\" ] && cat ./coverage/lcov.info | ./node_modules/.bin/codecov || true",
     "start": "mochify --transform babelify --reporter min --watch"
   },
   "repository": {
