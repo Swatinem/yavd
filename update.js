@@ -1,5 +1,5 @@
 import create from './create'
-import applyProps from './applyprops'
+import apply from './props'
 import {Instance, render, updateProps} from './instance'
 
 export default function update(node, prev, next) {
@@ -18,16 +18,7 @@ export default function update(node, prev, next) {
     // its the same type
 
     // patch the props
-    for (let key in next.props) {
-      let prop = next.props[key]
-      if (key === 'children' || prop === prev.props[key]) { continue }
-      if (prop && typeof prop === 'object') {
-        applyProps(node[key], prop)
-      } else {
-        node[key] = prop
-      }
-      // TODO: remove props that are not present any more
-    }
+    apply(node, prev.props, next.props)
 
     // and patch the children
     updateChildren(node, prev.props.children, next.props.children)

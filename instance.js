@@ -1,24 +1,22 @@
-import create from './create'
-import update from './update'
-
-const INSTANCES = new WeakMap()
+// Component => {instances: Props => Instance}
+const COMPONENTS = new WeakMap()
 
 export function Instance(vnode) {
   let component = vnode.type
   let props = vnode.props
 
-  if (!INSTANCES.has(component)) {
-    INSTANCES.set(component, new WeakMap())
+  if (!COMPONENTS.has(component)) {
+    COMPONENTS.set(component, {instances: new WeakMap()})
   }
-  let cached = INSTANCES.get(component)
-  if (cached.has(props)) {
-    return cached.get(props)
+  let cached = COMPONENTS.get(component)
+  if (cached.instances.has(props)) {
+    return cached.instances.get(props)
   }
 
   let state = component.initialState ? component.initialState(props) : {}
   let instance = {component, obj: {props, state}, vnode: null}
 
-  cached.set(props, instance)
+  cached.instances.set(props, instance)
   return instance
 }
 
