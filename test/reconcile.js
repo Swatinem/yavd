@@ -6,8 +6,8 @@ const cases = [
   <div className="foobar"></div>,
   <div id="foobar"></div>,
   <div dataset={{foo: 'bar', bar: 'foo'}}></div>,
-  <div style={{border: '1px solid red', display: 'none', margin: 'auto'}} dataset={{foo: 'bar'}}></div>,
-  <div style={{border: '1px solid red', display: 'inline'}}></div>,
+  <div dataset={{foo: 'bar'}} style={{position: 'fixed', display: 'none', cursor: 'pointer'}}></div>,
+  <div style={{position: 'fixed', display: 'inline'}}></div>,
   <div foo="bar"></div>,
   <div></div>,
 ]
