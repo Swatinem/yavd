@@ -1,22 +1,27 @@
 // Component => {instances: Props => Instance}
 const COMPONENTS = new WeakMap()
 
-export function Instance(vnode) {
+export function meta(vnode) {
   let component = vnode.type
-  let props = vnode.props
 
   if (!COMPONENTS.has(component)) {
     COMPONENTS.set(component, {instances: new WeakMap()})
   }
-  let cached = COMPONENTS.get(component)
-  if (cached.instances.has(props)) {
-    return cached.instances.get(props)
+  return COMPONENTS.get(component)
+}
+
+export function Instance(vnode) {
+  let {type: component, props} = vnode
+  let _meta = meta(vnode)
+
+  if (_meta.instances.has(props)) {
+    return _meta.instances.get(props)
   }
 
   let state = component.initialState ? component.initialState(props) : {}
   let instance = {component, obj: {props, state}, vnode: null}
 
-  cached.instances.set(props, instance)
+  _meta.instances.set(props, instance)
   return instance
 }
 
