@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {jsx, create, update} from '../'
+import {jsx, _create as create, _update as update} from '../'
 
 const Component = {
   render({props}) {

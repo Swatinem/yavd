@@ -1,4 +1,4 @@
-import {Instance, render} from './instance'
+import {Instance, render} from '../lib/instance'
 
 const propMap = {
   className: 'class',

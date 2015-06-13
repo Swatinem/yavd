@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {jsx, create} from '../'
+import {jsx, _create as create} from '../'
 
 describe('create', function () {
   it('should render a simple dom tree', function () {

@@ -2,7 +2,7 @@
   "name": "yavd",
   "version": "0.0.1",
   "description": "yet another virtual dom library",
-  "main": "index.js",
+  "main": "lib",
   "scripts": {
     "test": "mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --dir ./coverage --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
     "start": "mochify --transform babelify --reporter min --watch"

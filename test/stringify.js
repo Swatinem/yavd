@@ -1,6 +1,6 @@
 import {expect} from 'chai'
 import {jsx} from '../'
-import stringify from '../stringify'
+import stringify from '../ext/stringify'
 
 const Component = function ({props}) {
   return (<div id={props.foo}></div>)

@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {jsx, create, update} from '../'
+import {jsx, _create as create, _update as update} from '../'
 
 function Component({props}) {
   let first = props.first ? (<li>one fixed child</li>) : null
