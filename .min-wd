@@ -1,0 +1,9 @@
+{
+  "browsers": [{
+    "name": "firefox"
+  }, {
+    "name": "chrome"
+  }, {
+    "name": "phantomjs"
+  }]
+}

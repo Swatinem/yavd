@@ -1,0 +1,13 @@
+{
+  "libs": [
+    "browser",
+    "chai",
+    "ecma5",
+    "ecma6"
+  ],
+  "plugins": {
+    "complete_strings": {},
+    "doc_comment": {},
+    "node": {}
+  }
+}
