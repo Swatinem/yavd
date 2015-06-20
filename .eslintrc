@@ -1,0 +1,7 @@
+{
+  "extends": "swatinem",
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-uses-react": [2, {"pragma": "jsx"}],
+  },
+}

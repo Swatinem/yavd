@@ -1,8 +1,8 @@
-import {expect} from 'chai'
-const div = document.createElement('div')
+import {expect} from "chai"
+const div = document.createElement("div")
 export function innerHTML(node) {
   expect(node.ownerDocument).to.not.eql(document)
-  div.textContent = ''
+  div.textContent = ""
   div.appendChild(document.importNode(node, true))
   return div.innerHTML
 }

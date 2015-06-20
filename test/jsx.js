@@ -1,40 +1,40 @@
-import {expect} from 'chai'
+import {expect} from "chai"
 
-import {jsx} from '../'
+import {jsx} from "../"
 
-describe('jsx constructor', function () {
-  it('should create an empty node', function () {
-    let node = {
-      type: 'div',
+describe("jsx constructor", function () {
+  it("should create an empty node", function () {
+    const node = {
+      type: "div",
       props: {},
       children: [],
     }
     expect(<div/>).to.eql(node)
   })
-  it('should create a node with props', function () {
-    let node = {
-      type: 'div',
-      props: {className: 'foo'},
+  it("should create a node with props", function () {
+    const node = {
+      type: "div",
+      props: {className: "foo"},
       children: [],
     }
     expect(<div className="foo"/>).to.eql(node)
   })
-  it('should add children', function () {
-    let node = {
-      type: 'div',
-      props: {id: 'bar'},
+  it("should add children", function () {
+    const node = {
+      type: "div",
+      props: {id: "bar"},
       children: [
-        'some text ',
+        "some text ",
         {
-          type: 'em',
+          type: "em",
           props: {},
-          children: ['and']
+          children: ["and"],
         },
-        ' ',
+        " ",
         {
-          type: 'span',
-          props: {className: 'foo'},
-          children: ['other'],
+          type: "span",
+          props: {className: "foo"},
+          children: ["other"],
         },
       ],
     }

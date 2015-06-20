@@ -4,7 +4,8 @@
   "description": "yet another virtual dom library",
   "main": "lib",
   "scripts": {
-    "test": "mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --dir ./coverage --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
+    "test": "npm run lint && mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --dir ./coverage --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
+    "lint": "eslint lib test",
     "start": "mochify --transform babelify --reporter min --watch"
   },
   "repository": {
@@ -29,6 +30,9 @@
     "babel-runtime": "^5.5.4",
     "babelify": "^6.1.2",
     "chai": "^3.0.0",
+    "eslint": "^0.23.0",
+    "eslint-config-swatinem": "*",
+    "eslint-plugin-react": "^2.5.2",
     "mocha": "^2.2.5",
     "mochify": "^2.9.0",
     "mochify-istanbul": "^2.2.2"
