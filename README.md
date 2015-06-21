@@ -81,8 +81,24 @@ Data: {
 }
 
 NodeInstance: {
-  mount: (Location, Data) => void,
-  unmount: (Location) => void,
+  // the pre-generated foreign DocumentFragment that will be cloned from
+  template: Node,
+
+  // a DocumentFragment that is used as a reuse-cache
+  fragment: Node,
+
+  // this will update either the node specified by `reuse` or the template
+  // with the `data` provided, then import (if not reused) the fragment and
+  // insert it at `location`. Then it will call the `afterMount` callback and
+  // mount all the child fragments recursively.
+  mount: (Location, Data, reuse: Node) => void,
+
+  // unmount the node from its `location`. It will also recursively unmount any
+  // child fragments.
+  unmount: (Location, reuse: Node) => void,
+
+  // provided with a `location` and new `data`, this will populate the node and
+  // any child fragments with new data.
   update: (Location, Data) => void,
 }
 ```
