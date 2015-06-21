@@ -1,16 +1,22 @@
 import {expect} from "chai"
 import {jsx, yavd} from "../"
 
-describe.skip("static tags", function () {
+describe("static tags", function () {
   const parent = document.createElement("div")
   afterEach(function () {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild)
     }
   })
+
   it("should mount a static tag", function () {
     yavd(<div className="foo"/>, parent)
     expect(parent.innerHTML).to.eql('<div class="foo"></div>')
+  })
+  it("should mount to document.body by default", function () {
+    yavd(<div className="foo"/>)
+    expect(document.body.lastChild.outerHTML).to.eql('<div class="foo"></div>')
+    document.body.removeChild(document.body.lastChild)
   })
   it("should mount a static tag with nested children", function () {
     yavd(

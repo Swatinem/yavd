@@ -1,7 +1,7 @@
 import {expect} from "chai"
 import {jsx, props, yavd} from "../"
 
-describe.skip("tags with dynamic content props", function () {
+describe("tags with dynamic content props", function () {
   const parent = document.createElement("div")
   let app
   afterEach(function () {
