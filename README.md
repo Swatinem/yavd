@@ -4,51 +4,86 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![Dependency Status][david-image]][david-url]
 
-yavd is **y**et **a**nother **v**irtual **d**om library.
+yavd started out as **y**et **a**nother **v**irtual **d**om library.
 
-The goals are to be lightweight and very simple, and I do mean it! But it
-should also have some advanced optimizations
+But it has actually grown into a code generator that generates code to mount,
+update and unmount templates that are defined using a vdom structure.
 
-I would like to explore some ideas I have to make vdom really nice to use, and
-also fast. Because whatever you might have heard. The various virtual dom
-libraries out there are *not* fast.
+yavd has two basic concepts:
+* static templates
+* dynamic fragments
 
-* yavd is very modular. You only pay for what you really want to use.
-* yavd is written in ES6. So it means it is ready for our next generation
-  browsers. It also means you need to transpile it yourself if you want to use
-  it!
+*static templates* are pre-generated pieces of clonable html. It is either a
+single node or a fragment of multiple nodes.
+*dynamic fragments* are fragments that can dynamically change their contents
+and have 0 or more nodes active at any given time. An `update` can create or
+remove nodes from a fragment.
 
-## Internals
-
-*yavd* will work with plain js objects internally, with no expensive
-constructor function.
-I plan to use things like html5 templates to help cloning entire subtrees and
-also to reuse previous component instances.
+## API / Internals
 
 ```js
-Node: Number | String | {
+
+// public API:
+
+yavd: {
+  default: (VNode, Props?, Location?) => App
+
+  props: ((Props, State) => Any) => VNodeProps,
+  state: ((State) => Any) => VNodeProps,
+  children: VnodeChildren,
+  seq: ((Props, State) => Array<VNode>) => VNodeFragment,
+  match: (
+    (Props, State) => bool, (Props, State) => VNode,
+    …
+  ) => VNodeFragment,
+}
+
+App: {
+  update: (Props) => void,
+  unmount: () => void,
+}
+
+VNode: SimpleVNode | SpecialVNode
+
+SimpleVNode: Number | String | {
   type: String | Component,
   props: Props,
-  key?: String
+  children: Array<VNode>,
+  key?: String,
 }
+
+SpecialVNode: VNodeProps | VNodeChildren | VNodeFragment
 
 Component: ComponentFn | ComponentObj
 
-ComponentFn: (Instance) => Node
+ComponentFn: () => VNode
 
 ComponentObj: {
-  render: (Instance) => Node,
+  template: () => VNode,
+  initialState: (Props) => State,
   …
 }
 
-Props: {
-  children: Array<Node>,
-  …
+Location: Element | {
+  parent: Element,
+  before?: Element,
 }
 
-Instance: {
+Props: Object
+State: Object
+
+// intertal API:
+compile: (VNode) => NodeInstance
+
+Data: {
   props: Props,
-  state: Object,
+  state: State,
+}
+
+NodeInstance: {
+  mount: (Location, Data) => void,
+  unmount: (Location) => void,
+  update: (Location, Data) => void,
 }
 ```
 
