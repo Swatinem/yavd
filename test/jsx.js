@@ -11,6 +11,7 @@ describe("jsx constructor", function () {
     }
     expect(<div/>).to.eql(node)
   })
+
   it("should create a node with props", function () {
     const node = {
       type: "div",
@@ -19,6 +20,7 @@ describe("jsx constructor", function () {
     }
     expect(<div className="foo"/>).to.eql(node)
   })
+
   it("should add children", function () {
     const node = {
       type: "div",

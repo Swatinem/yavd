@@ -1,7 +1,7 @@
 import {expect} from "chai"
 import {jsx, props, yavd} from "../"
 
-describe("tags with dynamic content props", function () {
+describe("tags with dynamic props", function () {
   const parent = document.createElement("div")
   let app
   afterEach(function () {
@@ -18,6 +18,7 @@ describe("tags with dynamic content props", function () {
     app.update({klass: "bar"})
     expect(parent.innerHTML).to.eql('<div class="bar"></div>')
   })
+
   it("should mount and update a dynamic TextNode", function () {
     app = yavd(
       props(p => p.text),
@@ -27,7 +28,8 @@ describe("tags with dynamic content props", function () {
     app.update({text: "bar"})
     expect(parent.innerHTML).to.eql("bar")
   })
-  it("should mount and update a nested node with dynamic props and dynamic TextNodes", function () {
+
+  it("should mount and update a nested node with dynamic props and text", function () {
     app = yavd(
       <div className={props(p => p.klass)}>
         <span className={props(p => p.klass)}>{props(p => p.text)}</span>

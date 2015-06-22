@@ -4,7 +4,7 @@
   "description": "yet another virtual dom library",
   "main": "lib",
   "scripts": {
-    "test": "npm run lint && mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --dir ./coverage --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
+    "test": "npm run lint && mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --dir ./coverage --exclude '**/node_modules/**' --exclude '**/test/**' --report json ] --reporter spec",
     "lint": "eslint lib test",
     "start": "mochify --transform babelify --reporter min --watch"
   },
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/Swatinem/yavd#readme",
   "devDependencies": {
-    "babel-istanbul": "^0.2.1",
-    "babel-runtime": "^5.5.4",
+    "babel-istanbul": "^0.2.9",
+    "babel-runtime": "^5.6.3",
     "babelify": "^6.1.2",
     "chai": "^3.0.0",
     "eslint": "^0.23.0",
@@ -35,7 +35,7 @@
     "eslint-plugin-react": "^2.5.2",
     "mocha": "^2.2.5",
     "mochify": "^2.9.0",
-    "mochify-istanbul": "^2.2.2"
+    "mochify-istanbul": "^2.3.0"
   },
   "browserify": {
     "transform": [
