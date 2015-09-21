@@ -1,0 +1,42 @@
+{
+  "name": "yavd",
+  "version": "0.0.1",
+  "description": "yet another view dom library",
+  "main": "lib",
+  "jsnext:main": "lib/index.js",
+  "scripts": {
+    "test": "npm run lint && mochify --transform [ babelify --only test ] --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text-summary --report lcov --dir ./coverage --exclude '**/node_modules/**' --exclude '**/test/**' ] --reporter spec",
+    "lint": "eslint lib test",
+    "start": "mochify --reporter min --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Swatinem/yavd.git"
+  },
+  "keywords": [
+    "dom",
+    "template"
+  ],
+  "author": "Arpad Borsos <arpad.borsos@googlemail.com>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Swatinem/yavd/issues"
+  },
+  "homepage": "https://github.com/Swatinem/yavd#readme",
+  "devDependencies": {
+    "babel-istanbul": "^0.3.20",
+    "babel-runtime": "^5.8.24",
+    "babelify": "^6.3.0",
+    "chai": "^3.3.0",
+    "eslint": "^1.5.0",
+    "eslint-config-swatinem": "*",
+    "mocha": "^2.3.3",
+    "mochify": "^2.13.0",
+    "mochify-istanbul": "^2.3.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
+}
